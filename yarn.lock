@@ -2289,6 +2289,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mantine/form@npm:^7.2.0":
+  version: 7.2.0
+  resolution: "@mantine/form@npm:7.2.0"
+  dependencies:
+    fast-deep-equal: "npm:^3.1.3"
+    klona: "npm:^2.0.5"
+  peerDependencies:
+    react: ^18.2.0
+  checksum: 4f7329584bf8c1d27ab74844623b26c650d718e4ed98aac4bee9f3e123f502e48cd859559b1a19d36fad754acf43a822cbc322a7ea04fac8a15f81e9a8e8ff72
+  languageName: node
+  linkType: hard
+
 "@mantine/hooks@npm:7.2.0":
   version: 7.2.0
   resolution: "@mantine/hooks@npm:7.2.0"
@@ -4744,6 +4756,13 @@ __metadata:
   version: 4.14.199
   resolution: "@types/lodash@npm:4.14.199"
   checksum: a7168a0a2a7c9e8801aa95f92b02f9d664ee938a5186d73f77a3a8447f475bbadedc1f7f746ffd2530ae34069d232bf25f4f4414077f0d81c71489e34e59173e
+  languageName: node
+  linkType: hard
+
+"@types/luxon@npm:^3":
+  version: 3.3.4
+  resolution: "@types/luxon@npm:3.3.4"
+  checksum: d9ef0bdfa97cce2951107083ed0461ce92f0a12343d8853c44ae976ff153317fcfe76b3ada33abd820f1a124b6ce99e190183ba0267b239e18e5bcaf237e5bf9
   languageName: node
   linkType: hard
 
@@ -10815,7 +10834,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"klona@npm:^2.0.4":
+"klona@npm:^2.0.4, klona@npm:^2.0.5":
   version: 2.0.6
   resolution: "klona@npm:2.0.6"
   checksum: 94eed2c6c2ce99f409df9186a96340558897b3e62a85afdc1ee39103954d2ebe1c1c4e9fe2b0952771771fa96d70055ede8b27962a7021406374fdb695fd4d01
@@ -11018,6 +11037,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"luxon@npm:^3.4.3":
+  version: 3.4.3
+  resolution: "luxon@npm:3.4.3"
+  checksum: 65ad727684d367af9c8fcbde05ad7989ef2436a4496b62d993059baaa641e90a5fa74e98f34ee2ff29f7af7f2b27238ca78b87834f9068624e4133d786f87bc7
+  languageName: node
+  linkType: hard
+
 "lz-string@npm:^1.5.0":
   version: 1.5.0
   resolution: "lz-string@npm:1.5.0"
@@ -11096,6 +11122,7 @@ __metadata:
   dependencies:
     "@babel/core": "npm:^7.23.2"
     "@mantine/core": "npm:7.2.0"
+    "@mantine/form": "npm:^7.2.0"
     "@mantine/hooks": "npm:7.2.0"
     "@next/bundle-analyzer": "npm:^14.0.1"
     "@next/eslint-plugin-next": "npm:^14.0.1"
@@ -11110,6 +11137,7 @@ __metadata:
     "@testing-library/react": "npm:^14.0.0"
     "@testing-library/user-event": "npm:^14.5.1"
     "@types/jest": "npm:^29.5.7"
+    "@types/luxon": "npm:^3"
     "@types/node": "npm:^20.8.10"
     "@types/react": "npm:18.2.34"
     "@typescript-eslint/eslint-plugin": "npm:^6.9.1"
@@ -11127,6 +11155,7 @@ __metadata:
     eslint-plugin-testing-library: "npm:^6.1.0"
     jest: "npm:^29.7.0"
     jest-environment-jsdom: "npm:^29.7.0"
+    luxon: "npm:^3.4.3"
     next: "npm:14.0.1"
     postcss: "npm:^8.4.31"
     postcss-preset-mantine: "npm:1.9.1"
