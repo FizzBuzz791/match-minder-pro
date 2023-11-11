@@ -1577,25 +1577,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/traverse@npm:^7.1.6, @babel/traverse@npm:^7.22.8, @babel/traverse@npm:^7.23.0":
-  version: 7.23.0
-  resolution: "@babel/traverse@npm:7.23.0"
-  dependencies:
-    "@babel/code-frame": "npm:^7.22.13"
-    "@babel/generator": "npm:^7.23.0"
-    "@babel/helper-environment-visitor": "npm:^7.22.20"
-    "@babel/helper-function-name": "npm:^7.23.0"
-    "@babel/helper-hoist-variables": "npm:^7.22.5"
-    "@babel/helper-split-export-declaration": "npm:^7.22.6"
-    "@babel/parser": "npm:^7.23.0"
-    "@babel/types": "npm:^7.23.0"
-    debug: "npm:^4.1.0"
-    globals: "npm:^11.1.0"
-  checksum: 84f93e64179965a0de6109a8b1ce92d66eb52a76e8ba325d27bdec6952cedd8fc98eabf09fe443ef667a051300dc7ed8924e7bf61a87ad456501d1da46657509
-  languageName: node
-  linkType: hard
-
-"@babel/traverse@npm:^7.23.2":
+"@babel/traverse@npm:^7.1.6, @babel/traverse@npm:^7.22.8, @babel/traverse@npm:^7.23.0, @babel/traverse@npm:^7.23.2":
   version: 7.23.2
   resolution: "@babel/traverse@npm:7.23.2"
   dependencies:
