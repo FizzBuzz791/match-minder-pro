@@ -1,13 +1,15 @@
 'use client';
 
-import { Title, TextInput, Button, Text, Space, Group, Container } from '@mantine/core';
+import { Title, Button, Text, Space, Group, Container } from '@mantine/core';
 import { useEffect, useState } from 'react';
 import { IconClock, IconClockPause } from '@tabler/icons-react';
 import { DateTime } from 'luxon';
 import { Player } from '@/models/Player';
 import { TeamGrid } from '@/components/TeamGrid/TeamGrid';
+import { DivisionSelector } from '@/components/DivisionSelector/DivisionSelector';
 
 export default function HomePage() {
+  const [division, setDivision] = useState('');
   const [teamAName, setTeamAName] = useState('');
   const [teamAPlayers, setTeamAPlayers] = useState<Array<Player>>([]);
 
@@ -35,20 +37,20 @@ export default function HomePage() {
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <Container p="sm">
         <Title order={1}>Match Minder Pro</Title>
-        <TextInput label="Division" />
-        <TextInput
-          label="Team A"
-          value={teamAName}
-          onChange={(event) => setTeamAName(event.target.value)}
+        <DivisionSelector division={division} setDivision={setDivision} />
+        <TeamGrid
+          teamName={teamAName}
+          setTeamName={setTeamAName}
+          players={teamAPlayers}
+          setPlayers={setTeamAPlayers}
         />
-        <TeamGrid players={teamAPlayers} setPlayers={setTeamAPlayers} />
         <Space h="md" />
-        <TextInput
-          label="Team B"
-          value={teamBName}
-          onChange={(event) => setTeamBName(event.target.value)}
+        <TeamGrid
+          teamName={teamBName}
+          setTeamName={setTeamBName}
+          players={teamBPlayers}
+          setPlayers={setTeamBPlayers}
         />
-        <TeamGrid players={teamBPlayers} setPlayers={setTeamBPlayers} />
         <Space h="md" />
         <Group>
           <Button
@@ -63,7 +65,7 @@ export default function HomePage() {
           >
             Start Game
           </Button>
-          <Text>{gameStartTime?.toISO() ?? ''}</Text>
+          <Text>{gameStartTime?.toLocaleString(DateTime.DATETIME_MED) ?? ''}</Text>
         </Group>
         <Space h="md" />
         <Group>
