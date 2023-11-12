@@ -1,5 +1,4 @@
 import {
-  ActionIcon,
   Button,
   Group,
   Modal,
@@ -7,6 +6,7 @@ import {
   TextInput,
   Checkbox,
   NumberInput,
+  useMantineTheme,
 } from '@mantine/core';
 import { IconAward, IconHelmet, IconPlus } from '@tabler/icons-react';
 import { useForm } from '@mantine/form';
@@ -25,11 +25,13 @@ function getIcon(player: Player): JSX.Element | null {
 }
 
 export interface TeamGridProps {
+  teamName: string;
+  setTeamName: Dispatch<SetStateAction<string>>;
   players: Array<Player>;
   setPlayers: Dispatch<SetStateAction<Player[]>>;
 }
 
-export function TeamGrid({ players, setPlayers }: TeamGridProps) {
+export function TeamGrid({ teamName, setTeamName, players, setPlayers }: TeamGridProps) {
   const addPlayerForm = useForm({
     initialValues: {
       name: '',
@@ -44,18 +46,28 @@ export function TeamGrid({ players, setPlayers }: TeamGridProps) {
     },
   });
   const [opened, { open, close }] = useDisclosure(false);
+  const theme = useMantineTheme();
 
   return (
     <>
+      <Group>
+        <TextInput
+          label="Team"
+          value={teamName}
+          onChange={(event) => setTeamName(event.target.value)}
+        />
+        <Button
+          variant="filled"
+          aria-label="Add Player"
+          onClick={open}
+          leftSection={<IconPlus />}
+          mt={theme.spacing.lg}
+        >
+          Add Player
+        </Button>
+      </Group>
       <Table>
         <Table.Thead>
-          <Table.Tr>
-            <Table.Th colSpan={3}>
-              <ActionIcon variant="filled" aria-label="Add Player" onClick={open}>
-                <IconPlus />
-              </ActionIcon>
-            </Table.Th>
-          </Table.Tr>
           <Table.Tr>
             <Table.Th w="0.1vw">G/C</Table.Th>
             <Table.Th w="0.1vw">No</Table.Th>
