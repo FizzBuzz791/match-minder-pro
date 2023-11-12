@@ -7,6 +7,7 @@ import { DateTime } from 'luxon';
 import { Player } from '@/models/Player';
 import { TeamGrid } from '@/components/TeamGrid/TeamGrid';
 import { DivisionSelector } from '@/components/DivisionSelector/DivisionSelector';
+import { GameScore } from '@/components/GameScore/GameScore';
 
 export default function HomePage() {
   const [division, setDivision] = useState('');
@@ -36,7 +37,10 @@ export default function HomePage() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <Container p="sm">
-        <Title order={1}>Match Minder Pro</Title>
+        <Group justify="center">
+          <Title order={1}>Match Minder Pro</Title>
+        </Group>
+        <GameScore teamAPlayers={teamAPlayers} teamBPlayers={teamBPlayers} />
         <DivisionSelector division={division} setDivision={setDivision} />
         <TeamGrid
           teamName={teamAName}
