@@ -3,4 +3,5 @@ export interface Player {
   goalkeeper: boolean;
   captain: boolean;
   number: number;
+  goals: number;
 }
