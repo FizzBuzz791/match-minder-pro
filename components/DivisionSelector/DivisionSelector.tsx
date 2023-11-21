@@ -12,11 +12,6 @@ export function DivisionSelector({ division, setDivision }: DivisionSelectorProp
   const combobox = useCombobox({
     onDropdownClose: () => combobox.resetSelectedOption(),
   });
-  const options = divisions.map((d) => (
-    <Combobox.Option value={d} key={d}>
-      {d}
-    </Combobox.Option>
-  ));
 
   return (
     <Combobox
@@ -34,12 +29,18 @@ export function DivisionSelector({ division, setDivision }: DivisionSelectorProp
           rightSection={<Combobox.Chevron />}
           onClick={() => combobox.toggleDropdown()}
         >
-          {division || <Input.Placeholder>Pick value</Input.Placeholder>}
+          {division || <Input.Placeholder>Pick a Division</Input.Placeholder>}
         </InputBase>
       </Combobox.Target>
 
       <Combobox.Dropdown>
-        <Combobox.Options>{options}</Combobox.Options>
+        <Combobox.Options>
+          {divisions.map((d) => (
+            <Combobox.Option value={d} key={d}>
+              {d}
+            </Combobox.Option>
+          ))}
+        </Combobox.Options>
       </Combobox.Dropdown>
     </Combobox>
   );

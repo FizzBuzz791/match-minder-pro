@@ -7,7 +7,6 @@ import {
   Checkbox,
   NumberInput,
   useMantineTheme,
-  ActionIcon,
 } from '@mantine/core';
 import { IconAward, IconHelmet, IconPlus } from '@tabler/icons-react';
 import { useForm } from '@mantine/form';
@@ -60,7 +59,15 @@ export function TeamGrid({ teamName, setTeamName, players, setPlayers }: TeamGri
         <Button
           variant="filled"
           aria-label="Add Player"
-          onClick={open}
+          onClick={() => {
+            addPlayerForm.setValues({
+              name: '',
+              goalkeeper: false,
+              captain: false,
+              number: Math.max(...players.map((p) => p.number), 0) + 1,
+            });
+            open();
+          }}
           leftSection={<IconPlus />}
           mt={theme.spacing.lg}
         >
@@ -73,30 +80,14 @@ export function TeamGrid({ teamName, setTeamName, players, setPlayers }: TeamGri
             <Table.Th w="0.1vw">G/C</Table.Th>
             <Table.Th w="0.1vw">No</Table.Th>
             <Table.Th>Player</Table.Th>
-            <Table.Th w="0.1w">Goals</Table.Th>
           </Table.Tr>
         </Table.Thead>
         <Table.Tbody>
-          {players.map((p, i) => (
+          {players.map((p) => (
             <Table.Tr key={p.name}>
               <Table.Td>{getIcon(p)}</Table.Td>
               <Table.Td>{p.number}</Table.Td>
               <Table.Td>{p.name}</Table.Td>
-              <Table.Td>
-                <Group>
-                  {p.goals.toString()}
-                  <ActionIcon
-                    aria-label="Add Goal"
-                    onClick={() => {
-                      const newPlayers = [...players];
-                      newPlayers[i] = { ...players[i], goals: players[i].goals + 1 };
-                      setPlayers(newPlayers);
-                    }}
-                  >
-                    <IconPlus />
-                  </ActionIcon>
-                </Group>
-              </Table.Td>
             </Table.Tr>
           ))}
         </Table.Tbody>
@@ -113,7 +104,9 @@ export function TeamGrid({ teamName, setTeamName, players, setPlayers }: TeamGri
                 goalkeeper: values.goalkeeper,
                 captain: values.captain,
                 number: values.number,
-                goals: 0,
+                goals: [],
+                assists: [],
+                penaltyMinutes: [],
               },
             ]);
           })}

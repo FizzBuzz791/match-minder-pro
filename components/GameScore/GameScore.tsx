@@ -7,7 +7,7 @@ interface GameScoreProps {
 }
 
 function getTeamScore(players: Player[]): number {
-  return players.reduce((acc, cur) => acc + cur.goals, 0);
+  return players.reduce((acc, cur) => acc + cur.goals.length, 0);
 }
 
 export function GameScore({ teamAPlayers, teamBPlayers }: GameScoreProps) {
