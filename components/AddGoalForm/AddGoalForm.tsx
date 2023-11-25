@@ -67,6 +67,7 @@ export function AddGoalForm({ teamName, opened, close, players, setPlayers }: Ad
             <InputBase
               label="Goalscorer"
               component="button"
+              type="button"
               pointer
               rightSection={<Combobox.Chevron />}
               onClick={() => goalScorerCombobox.toggleDropdown()}
